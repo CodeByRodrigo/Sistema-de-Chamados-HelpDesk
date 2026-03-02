@@ -1,5 +1,6 @@
 package menu;
 
+import java.util.List;
 import java.util.Scanner;
 
 import model.Ticket;
@@ -7,18 +8,13 @@ import service.TicketService;
 import model.Prioridade;
 
 public class Menu {
-    private TicketService service;
-    private Scanner sc;
-
-    public Menu() {
-        this.service = new TicketService();
-        this.sc = new Scanner(System.in);
-    }
+    private TicketService service = new TicketService();
+    private Scanner sc = new Scanner(System.in);
 
     public void exibirMenu() throws InterruptedException {
         int opcao = 0;
         while (opcao != 4) {
-            System.out.println("Bem vindo ao sistema de chamados");
+            System.out.println("-----SISTEMA HELPDESK-----");
             System.out.println("1 - Abrir chamado");
             System.out.println("2 - Listar chamados");
             System.out.println("3 - Buscar por ID");
@@ -50,17 +46,24 @@ public class Menu {
                     System.out.print("Data de abertura (aa/aa/aaaa) :");
                     String dataAbertura = sc.nextLine();
 
-
                     System.out.println("Aguarde...");
                     Thread.sleep(3000);
-                    System.out.println("Chamado aberto com sucesso!");
+                    System.out.println("Chamado efetuado com sucesso!");
+                    System.out.println("Aguarde um dos tecnicos.");
                     System.out.println("-----------------------------------");
 
                     service.abrirChamado(titulo, descricao, prioridade, dataAbertura, nome);
                     break;
 
                 case 2:
-                    service.listarChamados();
+                    List<TicketService> listarChamados = service.listarChamados();
+                    System.out.println("-----LISTA DE CHAMADOS-----");
+                    if (listarChamados == null || listarChamados.isEmpty()){
+                        System.out.println("Nenhum chamado em aberto");
+                    }else{
+                        System.out.println(listarChamados);
+                    }
+                    System.out.println("-----FIM DOS CHAMADOS-----");
                     break;
 
                 case 3:

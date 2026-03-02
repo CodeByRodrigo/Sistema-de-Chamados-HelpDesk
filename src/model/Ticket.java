@@ -33,35 +33,35 @@ public class Ticket {
         this.titulo = titulo;
     }
 
-    public String getDescricao(){
+    public String getDescricao() {
         return this.descricao;
     }
 
-    public void setDescricao(String descricao){
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public Prioridade getPrioridade(){
+    public Prioridade getPrioridade() {
         return this.prioridade;
     }
 
-    public void setPrioridade(Prioridade prioridade){
+    public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
     }
 
-    public String getDataAbertura(){
+    public String getDataAbertura() {
         return this.dataAbertura;
     }
 
-    public void setDataAbertura(String dataAbertura){
+    public void setDataAbertura(String dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
-    public String getNomeSolicitante(){
+    public String getNomeSolicitante() {
         return this.nomeSolicitante;
     }
 
-    public void setNomeSolicitante(String nomeSolicitante){
+    public void setNomeSolicitante(String nomeSolicitante) {
         this.nomeSolicitante = nomeSolicitante;
     }
 }

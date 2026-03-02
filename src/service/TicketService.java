@@ -1,6 +1,7 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import model.Prioridade;
 import model.Ticket;
@@ -20,7 +21,7 @@ public class TicketService {
         proximoId++;
     }
 
-    public void listarChamados() {
+    public List<TicketService> listarChamados() {
         for (Ticket ticket : chamados) {
             System.out.println("ID: " + ticket.getId());
             System.out.println("Titulo: " + ticket.getTitulo());
@@ -30,6 +31,7 @@ public class TicketService {
             System.out.println("Data de abertura: " + ticket.getDataAbertura());
             System.out.println("Nome do solictante: " + ticket.getNomeSolicitante());
         }
+        return null;
     }
 
     public Ticket buscarPorId(int id) {
