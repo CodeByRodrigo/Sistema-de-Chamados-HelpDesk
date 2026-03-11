@@ -43,25 +43,33 @@ public class Menu {
                     else if (opcaoPrioridade == 2) prioridade = Prioridade.MEDIA;
                     else prioridade = Prioridade.ALTA;
 
-                    System.out.print("Data de abertura (aa/aa/aaaa) :");
-                    String dataAbertura = sc.nextLine();
-
                     System.out.println("Aguarde...");
                     Thread.sleep(3000);
                     System.out.println("Chamado efetuado com sucesso!");
-                    System.out.println("Aguarde um dos tecnicos.");
-                    System.out.println("-----------------------------------");
+                    System.out.println("Em breve um dos técnicos irá entrar em contato.");
+                    System.out.println();
 
-                    service.abrirChamado(titulo, descricao, prioridade, dataAbertura, nome);
+                    service.abrirChamado(titulo, descricao, prioridade, nome);
                     break;
 
                 case 2:
-                    List<TicketService> listarChamados = service.listarChamados();
+                    List<Ticket> listarChamados = service.listarChamados();
                     System.out.println("-----LISTA DE CHAMADOS-----");
                     if (listarChamados == null || listarChamados.isEmpty()){
                         System.out.println("Nenhum chamado em aberto");
                     }else{
-                        System.out.println(listarChamados);
+                        for (int i = 0; i < listarChamados.size(); i++) {
+                            Ticket t = listarChamados.get(i);
+                            System.out.println("ID: " + t.getId());
+                            System.out.println("Titulo: " + t.getTitulo());
+                            System.out.println("Descrição: " + t.getDescricao());
+                            System.out.println("Prioridade: " + t.getPrioridade());
+                            System.out.println("Data de abertura: " + t.getDataAbertura());
+                            System.out.println("Nome do solicitante: " + t.getNomeSolicitante());
+                            if (i < listarChamados.size() - 1) {
+                                System.out.println("-----PRÓXIMO-----");
+                            }
+                        }
                     }
                     System.out.println("-----FIM DOS CHAMADOS-----");
                     break;
